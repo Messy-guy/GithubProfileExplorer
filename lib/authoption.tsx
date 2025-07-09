@@ -6,12 +6,12 @@ export const authoption: NextAuthOptions = {
     GitHubProvider({
       clientId: process.env.GITHUB_ID!,
       clientSecret: process.env.GITHUB_SECRET!,
-      authorization: { params: { scope: "repo read:user user:email user:follow gists stars" } }, // optional but useful
+      authorization: { params: { scope: "repo read:user user:email user:follow gists stars" } },
     }),
   ],
-  secret: process.env.NEXTAUTH_SECRET, // ✅ REQUIRED
+  secret: process.env.NEXTAUTH_SECRET, 
   session: {
-    strategy: "jwt", // ✅ REQUIRED if you're not using a DB
+    strategy: "jwt", 
   },
   callbacks: {
     async jwt({ token, account }) {
@@ -21,9 +21,9 @@ export const authoption: NextAuthOptions = {
       return token;
     },
     async session({ session, token }) {
-      session.accessToken = token.accessToken;
+      session.accessToken = token.accessToken as string;
       return session;
     },
   },
-  debug: true, // ✅ shows helpful logs in the terminal
+  debug: true,
 };
