@@ -13,7 +13,7 @@ function LoginPage() {
         </div>
         <h1 className='font-bold text-3xl bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent '>Welcome</h1>
         <p className='text-slate-600 text-lg'>Sign up to continue to your account</p>
-        <Button onClick={()=> signIn("github", {callbackUrl : "/home"}) } className='mt-3 px-20 py-3 flex bg-gradient-to-br from-slate-900 to-slate-700 space-x-2'>
+        <Button onClick={()=> signIn("github", {callbackUrl : `${window.location.origin}/home`}) } className='mt-3 px-20 py-3 flex bg-gradient-to-br from-slate-900 to-slate-700 space-x-2'>
           <Github className=' text-white' />
           <p className='text-white'>Continue with Github</p>
         </Button>
